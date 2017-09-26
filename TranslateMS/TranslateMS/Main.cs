@@ -15,6 +15,8 @@ namespace TranslateMS
 
         private const string ApiKey = "7051e354d610423b93cb98b7dd77db43";
 
+
+        // TranslateMS.Main.fetch("hello world", "fr");
         
         public static string fetch(string text, string to) {
             /**
@@ -25,6 +27,12 @@ namespace TranslateMS
              * format the ApiUrl and add {text} and {to} to the url
              * 
              * Return results as text.
+             * 
+             * lang code:
+             * en
+             * fr
+             * de
+             * 
              * 
              * 
              * */
