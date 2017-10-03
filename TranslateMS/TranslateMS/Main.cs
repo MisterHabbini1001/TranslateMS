@@ -1,19 +1,9 @@
 ﻿using System;
 using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Threading.Tasks;
-using System.Xml.Linq;
-using System.Text;
-using System.Net;
-using System.IO;
-using System.Runtime.Serialization.Json;
-using System.Runtime.Serialization;
-using System.Web;
-using System.Media;
 
 namespace TranslateMS
 {
-    class Main
+    public static class Main
     {
         private const string ApiKeyHeader = "Ocp-Apim-Subscription-Key";
 
@@ -26,23 +16,6 @@ namespace TranslateMS
 
         public static string fetch(string text, string to)
         {
-            /**
-             * Use Dot net HttpClient library to connect to ApiUrl, with a custom http header as :
-             * 
-             * {ApiKeyHeader} : {ApiKey}
-             * 
-             * format the ApiUrl and add {text} and {to} to the url
-             * 
-             * Return results as text.
-             * 
-             * lang code:
-             * en
-             * fr
-             * de
-             * 
-             * 
-             * 
-             * */
             HttpClient client = new HttpClient();
             HttpRequestMessage requestMessage = new HttpRequestMessage(HttpMethod.Put, ApiUrl);
             requestMessage.Headers.Add(ApiKeyHeader, ApiKey);  
@@ -57,15 +30,6 @@ namespace TranslateMS
 
         }
 
-        public static void Main(string[] args)
-        {
-           fetch("hello world", "fr");
-        }
-
-        private static string _request()
-        {
-            return "";
-        }
        
     }
 }
