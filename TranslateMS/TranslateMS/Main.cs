@@ -11,10 +11,28 @@ namespace TranslateMS
 
         private const string ApiKey = "7051e354d610423b93cb98b7dd77db43";
 
-
-        // TranslateMS.Main.fetch("hello world", "fr");
-
         public static string fetch(string text, string to)
+        {
+            HttpClient client = new HttpClient();
+            client.DefaultRequestHeaders.Add(ApiKeyHeader, ApiKey);
+            string connection_url = String.Format(ApiUrl, text, to);
+
+            var response = client.GetAsync(connection_url).Result;
+
+            if (response.IsSuccessStatusCode)
+            {
+                return response.Content.ReadAsStringAsync().Result;
+            }
+            else
+            {
+                return "there was an error";
+            }
+        }       
+    }
+}
+
+/*
+public static string fetch(string text, string to)
         {
             HttpClient client = new HttpClient();
             HttpRequestMessage requestMessage = new HttpRequestMessage(HttpMethod.Put, ApiUrl);
@@ -23,15 +41,12 @@ namespace TranslateMS
             string connection_url = String.Format(ApiUrl, text, to);
 
             HttpResponseMessage response = client.GetAsync(connection_url).Result;
-            Console.WriteLine(response.ToString());
+            //string response = client.GetAsync(connection_url).Result;
 
             return response.ToString();
             //return "";
 
         }
-
-       
-    }
-}
+*/
 
 
