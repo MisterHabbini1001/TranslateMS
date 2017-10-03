@@ -13,7 +13,7 @@ using System.Media;
 
 namespace TranslateMS
 {
-    class Main1
+    class Main
     {
         private const string ApiKeyHeader = "Ocp-Apim-Subscription-Key";
 
